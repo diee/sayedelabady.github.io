@@ -2,7 +2,7 @@
     "name": "HxH",
     "short_name": "HxH",
     "icons": [ {
-        "src": "images/icons/gon.webp",
+        "src": "images/icons/gon.png",
         "sizes": "512x512",
         "type": "image/png"
       }
