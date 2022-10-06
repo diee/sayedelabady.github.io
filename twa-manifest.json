@@ -1,0 +1,50 @@
+{
+  "packageId": "io.github.sayedelabady.twa",
+  "host": "sayedelabady.github.io",
+  "name": "HxH",
+  "launcherName": "HxH",
+  "display": "standalone",
+  "themeColor": "#3E4EB8",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#3E4EB8",
+  "enableNotifications": true,
+  "startUrl": "/index.html",
+  "iconUrl": "https://sayedelabady.github.io/images/icons/gon.webp",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "/Users/elabadysayed/Desktop/TWA/sayedelabady.github.io/android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "1",
+  "appVersionCode": 1,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://sayedelabady.github.io/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://sayedelabady.github.io/",
+  "minSdkVersion": 19,
+  "shareTarget": {
+    "action": "https://sayedelabady.github.io/share-target/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "orientation": "default",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "appVersion": "1"
+}
