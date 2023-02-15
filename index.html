@@ -5,7 +5,7 @@
 
 </head>
 
-<body>
+<body onbeforeunload="return beforeunload()">
     <script src="application.js"></script>
 
     <img id="surprisePic"></img>
@@ -13,10 +13,12 @@
 
     <div onclick="testFunction()"> Click for a surprise!</div>
 
-
+    <br>	
     <label for="name">Enter your favourite Hunter character:</label>
-
+    <br>	
     <input type="text" id="name" name="name" required minlength="4" maxlength="8" size="30">
+    <br>	
+    <a href="https://hunterxhunter.fandom.com/wiki/Hunterpedia">Click here to go to Hunterpedia to see the full list of characters</a>
 
 
 </body>
