@@ -1,4 +1,3 @@
-
 function testFunction() {
   document.getElementById("surprisePic").src = "images/icons/gon.png";
 
@@ -9,7 +8,6 @@ var files = [
   '',
   'index.html',
   'images/icons/gon.png',
-  'math-worker.js',
 ]
 
 
@@ -54,54 +52,6 @@ self.addEventListener('fetch', async function(event) {
       console.log("In cache!");
       return cached;
       // console.log(error);
-    }
-  }());
-});
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-self.addEventListener('notificationclick', function(event) {
-  console.log('[Service Worker] Notification clicked.');
-  event.notification.close();
-
-  const target =
-    new URL(event.notification.data.url);
-
-  event.waitUntil(async function() {
-    const clientWindows = await clients.matchAll({type: 'window'});
-
-    // Add some delays depending on the pokemon chosen.
-    const choice = event.notification.data.img;
-    if (choice.includes("charmander")) {
-      return;
-    } else if (choice.includes("squirtle")) {
-      await sleep(6000);
-    }
-
-    for (const client of clientWindows) {
-      const current = new URL(client.url);
-
-      if (!client.focus) continue;
-
-      if (target.pathname !== current.pathname) continue;
-
-      console.log('[Service Worker] Focusing.');
-      // Does getting the new client matter?
-      const newClient = await client.focus();
-
-      if (target.toString() !== current.toString()) {
-        console.log('[Service Worker] Navigating.');
-        await newClient.navigate(target.toString());
-      }
-
-      return;
-    }
-
-    if (clients.openWindow) {
-      console.log("[Service Worker] Opening Window.");
-      await clients.openWindow(target.toString());
     }
   }());
 });
