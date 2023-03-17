@@ -5,6 +5,10 @@
       navigator.serviceWorker
         .register('./service-worker.js');
     }
+   
+  })();
+
+  function openMediaNotification(){
     if ('mediaSession' in navigator) {
 
       navigator.mediaSession.metadata = new MediaMetadata({
@@ -29,8 +33,8 @@
       navigator.mediaSession.setActionHandler('nexttrack', function() {});
   }
 
-  })();
-
+  
+  }
   function testFunction() {
     document.getElementById("surprisePic").src = "images/icons/gon.png";
   
