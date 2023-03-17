@@ -5,11 +5,11 @@
       navigator.serviceWorker
         .register('./service-worker.js');
     }
-   
-  })();
+    let audio = document.querySelector('audio');
 
-  function openMediaNotification(){
-    if ('mediaSession' in navigator) {
+    // User interacted with the page. Let's play audio...
+    audio.play()
+    .then(_ => {  if ('mediaSession' in navigator) {
 
       navigator.mediaSession.metadata = new MediaMetadata({
       title: 'Never Gonna Give You Up',
@@ -32,8 +32,14 @@
       navigator.mediaSession.setActionHandler('previoustrack', function() {});
       navigator.mediaSession.setActionHandler('nexttrack', function() {});
   }
+ })
+    .catch(error => { console.log(error) });
 
-  
+  })();
+
+  function openMediaNotification(){
+   
+
   }
   function testFunction() {
     document.getElementById("surprisePic").src = "images/icons/gon.png";
