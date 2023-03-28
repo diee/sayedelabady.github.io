@@ -37,7 +37,8 @@
 
   })();
   function postMessage(){
-    document.getElementById("postMessage").contentWindow.postMessage("Hey", "*");
+    window.postMessage("Hey", "*")
+    document.getElementById("f").contentWindow.postMessage("Hey", "*")
   }
 
   function testFunction() {
