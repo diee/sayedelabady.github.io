@@ -36,11 +36,10 @@
     .catch(error => { console.log(error) });
 
   })();
-
-  function openMediaNotification(){
-   
-
+  function postMessage(){
+    document.getElementById("postMessage").contentWindow.postMessage("Hey", "*");
   }
+
   function testFunction() {
     document.getElementById("surprisePic").src = "images/icons/gon.png";
   
