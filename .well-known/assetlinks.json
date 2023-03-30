@@ -7,4 +7,15 @@
       "E0:02:1D:BE:54:65:2B:FF:54:14:EE:9F:A3:92:14:40:01:75:0D:81:A2:3F:91:F1:9D:56:30:13:A9:1F:A4:BE"
     ]
   }
-}]
+}, 
+{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+  "namespace": "android_app",
+  "package_name": "com.example.postmessage",
+  "sha256_cert_fingerprints": [
+    "13:AE:74:F7:7A:4B:71:C9:EF:D2:30:BC:FD:57:FA:4C:93:88:DF:0E:47:5D:83:CF:E7:D2:B8:5B:7F:1B:04:F0"
+  ]
+}
+}
+]
