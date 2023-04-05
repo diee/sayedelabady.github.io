@@ -8,7 +8,51 @@
 
 })();
 
+const iframe = document.querySelector("iframe");
+const channel = new MessageChannel();
 
+window.addEventListener("message", function (event) {
+  console.log("[PostMessage] Got initial message.");
+  appendOutput("Got initial message.");
+  const clientButton = document.getElementById('butMessageClient');
+
+  var port = event.ports[0];
+  if (typeof port === 'undefined') return;
+
+  console.log("[PostMessage1] Got message port.");
+  appendOutput("Got message port.");
+
+  port.postMessage("Connected");
+  iframe.contentWindow.postMessage("this should be delivered to an iframe", "*", [port]);
+
+  clientButton.addEventListener('click', function () {
+      port.postMessage(img.alt);
+      iframe.contentWindow.postMessage("this should be delivered to an iframe", "*", [port]);
+      appendOutput("test")
+  });
+
+  port.onmessage = function (event) {
+      console.log("[PostMessage1] Got Message: " + event.data);
+      appendOutput(event.data);
+      port.postMessage("ACK " + event.data);
+  };
+});
+
+var ua = navigator.userAgent.toLowerCase();
+var isAndroid = ua.indexOf("android") > -1;
+if(!isAndroid) {
+    iframe.addEventListener("load", () => {
+        window.postMessage("Inital s", "*", [channel.port1]);
+      });
+      channel.port2.onmessage = handleMessage;
+      
+      function handleMessage(e) {
+         appendOutput(e.data)
+        }
+      
+}
+
+  
 const output = document.getElementById('history');
 
 function appendOutput(msg) {
@@ -17,29 +61,4 @@ function appendOutput(msg) {
 };
 
 
-window.addEventListener("message", function (event) {
-    console.log("[PostMessage] Got initial message.");
-    appendOutput("Got initial message.");
-    const clientButton = document.getElementById('butMessageClient');
-
-    var port = event.ports[0];
-    if (typeof port === 'undefined') return;
-
-    console.log("[PostMessage] Got message port.");
-    appendOutput("Got message port.");
-
-    port.postMessage("Connected");
-
-
-    clientButton.addEventListener('click', function () {
-        port.postMessage(img.alt);
-        appendOutput("test")
-    });
-
-    port.onmessage = function (event) {
-        console.log("[PostMessage] Got Message: " + event.data);
-        appendOutput(event.data);
-        port.postMessage("ACK " + event.data);
-    };
-});
 

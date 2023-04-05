@@ -7,14 +7,14 @@
   }
 
 })();
-function postMessage() {
-  window.postMessage("Hey", "*")
-};
+
+
+
 
 var response = "";
 function appendOutput(msg) {
-  response += msg;
-  alert(response);
+  response += msg + "\n";
+  console.log(response);
 };
 function testFunction() {
   document.getElementById("surprisePic").src = "images/icons/gon.png";
