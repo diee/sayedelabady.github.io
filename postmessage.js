@@ -40,7 +40,8 @@ window.addEventListener("message", function (event) {
 
 var ua = navigator.userAgent.toLowerCase();
 var isAndroid = ua.indexOf("android") > -1;
-if(!isAndroid) {
+alert(ua);
+if(isAndroid) {
     iframe.addEventListener("load", () => {
         window.postMessage("Inital s", "*", [channel.port1]);
       });
