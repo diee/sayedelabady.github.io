@@ -26,20 +26,20 @@ window.addEventListener("message", function (event) {
 
 });
 
-var ua = navigator.userAgent.toLowerCase();
-var isAndroid = ua.indexOf("android") > -1;
-alert(ua + isAndroid);
-if(!isAndroid) {
-    iframe.addEventListener("load", () => {
-        window.postMessage("Inital s", "*", [channel.port1]);
-      });
-      channel.port2.onmessage = handleMessage;
+// var ua = navigator.userAgent.toLowerCase();
+// var isAndroid = ua.indexOf("android") > -1;
+// alert(ua + isAndroid);
+// if(!isAndroid) {
+//     iframe.addEventListener("load", () => {
+//         window.postMessage("Inital s", "*", [channel.port1]);
+//       });
+//       channel.port2.onmessage = handleMessage;
       
-      function handleMessage(e) {
-         appendOutput(e.data)
-        }
+//       function handleMessage(e) {
+//          appendOutput(e.data)
+//         }
       
-}
+// }
 
   
 const output = document.getElementById('history');
