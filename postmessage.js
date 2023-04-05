@@ -22,26 +22,14 @@ window.addEventListener("message", function (event) {
   console.log("[PostMessage1] Got message port.");
   appendOutput("Got message port.");
 
-  port.postMessage("Connected");
   iframe.contentWindow.postMessage("this should be delivered to an iframe", "*", [port]);
 
-  clientButton.addEventListener('click', function () {
-      port.postMessage(img.alt);
-      iframe.contentWindow.postMessage("this should be delivered to an iframe", "*", [port]);
-      appendOutput("test")
-  });
-
-  port.onmessage = function (event) {
-      console.log("[PostMessage1] Got Message: " + event.data);
-      appendOutput(event.data);
-      port.postMessage("ACK " + event.data);
-  };
 });
 
 var ua = navigator.userAgent.toLowerCase();
 var isAndroid = ua.indexOf("android") > -1;
-alert(ua);
-if(isAndroid) {
+alert(ua + isAndroid);
+if(!isAndroid) {
     iframe.addEventListener("load", () => {
         window.postMessage("Inital s", "*", [channel.port1]);
       });
