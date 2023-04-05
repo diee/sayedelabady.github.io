@@ -19,10 +19,10 @@ window.addEventListener("message", function (event) {
   var port = event.ports[0];
   if (typeof port === 'undefined') return;
 
-  console.log("[PostMessage1] Got message port.");
+  console.log("[PostMessage1] Got message port. ");
   appendOutput("Got message port.");
 
-  iframe.contentWindow.postMessage("this should be delivered to an iframe", "*", [port]);
+  iframe.contentWindow.postMessage("this should be delivered to an iframe", "*", [event.ports]);
 
 });
 
