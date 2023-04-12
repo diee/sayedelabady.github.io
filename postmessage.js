@@ -18,7 +18,10 @@ window.addEventListener("message", function (event) {
 
   var port = event.ports[0];
   if (typeof port === 'undefined') return;
-
+  port.onmessage = function(event) {
+    console.log("[PostMessage] Got Message: " + event.data);
+    appendOutput(event.data);
+  };
   console.log("[PostMessage1] Got message port. ");
   appendOutput("Got message port.");
 
