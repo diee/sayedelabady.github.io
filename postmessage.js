@@ -23,6 +23,7 @@ window.addEventListener("message", function (event) {
   appendOutput("Got message port.");
 
   iframe.contentWindow.postMessage("this should be delivered to an iframe", "*", [port]);
+  alert(event.origin);
   port.onmessage = function(event) {
     console.log("[PostMessage] Got Message: " + event.data + " " + event.origin);
     alert(event.origin);
