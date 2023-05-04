@@ -22,6 +22,7 @@ window.addEventListener("message", function (event) {
   port.onmessage = function(event) {
     console.log("[PostMessage] Got Message: " + event.data + " " + event.origin);
     alert(event.origin);
+    port.postMessage("Test")
   };
 });
 
