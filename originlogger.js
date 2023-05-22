@@ -11,18 +11,19 @@
 const channel = new MessageChannel();
 
 window.addEventListener("message", function (event) {
-  console.log("[PostMessage] Got initial message.");
+  // We are receiveing messages from any origin, you can check of the origin by
+  // using event.origin
 
+  // get the port then use it for communication.
   var port = event.ports[0];
   if (typeof port === 'undefined') return;
   
-  console.log("[PostMessage1] Got message port. ");
+  // Post message on this port.
+  port.postMessage("Test")
 
-  alert(event.origin);
+  // Receive upcoming messages on this port. 
   port.onmessage = function(event) {
-    console.log("[PostMessage] Got Message: " + event.data + " " + event.origin);
-    alert(event.origin);
-    port.postMessage("Test")
+    console.log("[PostMessage1] Got message" + event.data);
   };
 });
 
