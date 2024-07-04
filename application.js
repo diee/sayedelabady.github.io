@@ -20,3 +20,6 @@ function testFunction() {
   document.getElementById("surprisePic").src = "images/icons/gon.png";
 };
 
+function postMessage() {
+  console.log("clicked");
+}
